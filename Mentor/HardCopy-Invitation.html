@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitation – Dr. E. Bhaskaran | AI Hackathon</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* Norwestter font-face */
+        @font-face {
+            font-family: 'Norwester';
+            src: url('https://cdn.jsdelivr.net/gh/nicholasgasior/gfonts-norwester@master/fonts/norwester.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/nicholasgasior/gfonts-norwester@master/fonts/norwester.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        /* ── Strict A4 Single Page ── */
+        .page {
+            width: 794px;
+            height: 1123px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Silver corner borders */
+        .c {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .tl {
+            top: 0;
+            left: 0;
+            border-top: 4px solid #333;
+            border-left: 4px solid #333;
+        }
+
+        .tr {
+            top: 0;
+            right: 0;
+            border-top: 4px solid #333;
+            border-right: 4px solid #333;
+        }
+
+        .bl {
+            bottom: 0;
+            left: 0;
+            border-bottom: 4px solid #333;
+            border-left: 4px solid #333;
+        }
+
+        .br {
+            bottom: 0;
+            right: 0;
+            border-bottom: 4px solid #333;
+            border-right: 4px solid #333;
+        }
+
+        /* ── Banner ── */
+        .banner {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 40%, #2d2d2d 70%, #1a1a1a 100%);
+            padding: 18px 44px 14px;
+            text-align: center;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .banner .pill {
+            display: inline-block;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 4px 18px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .banner h1 {
+            font-family: 'Norwester', sans-serif;
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 1.3;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .banner h1 span {
+            color: #cccccc;
+        }
+
+        .banner .sub {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 12px;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .banner .organiser {
+            margin-top: 8px;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.45);
+            letter-spacing: 0.5px;
+            font-style: italic;
+        }
+
+        .grey-bar {
+            height: 5px;
+            background: linear-gradient(90deg, #888, #222, #888);
+            flex-shrink: 0;
+        }
+
+        /* ── Content ── */
+        .content {
+            padding: 16px 50px 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        /* Invite label */
+        .inv-label {
+            text-align: center;
+        }
+
+        .inv-label p {
+            font-size: 10.5px;
+            color: #999;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .inv-label h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: #1a1a1a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #999;
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        .ornament hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        /* To block */
+        .to-block {
+            background: #ebebeb;
+            border-left: 5px solid #111;
+            border-radius: 0 7px 7px 0;
+            padding: 10px 18px;
+        }
+
+        .to-block .to-lbl {
+            font-size: 10px;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .to-block .to-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: #111;
+            font-weight: 700;
+        }
+
+        .to-block .to-role {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.45;
+        }
+
+        .to-block .to-dept {
+            font-size: 11.5px;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Para */
+        .para {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .para strong {
+            color: #000;
+        }
+
+        /* Event row */
+        .event-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .ev {
+            background: #f5f5f5;
+            border: 1.5px solid #ddd;
+            border-radius: 7px;
+            padding: 12px 10px;
+            text-align: center;
+        }
+
+        .ev .lbl {
+            font-size: 9.5px;
+            font-weight: 700;
+            color: #777;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .ev .val {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        /* Presence note */
+        .presence-note {
+            background: #e8e8e8;
+            border-left: 5px solid #222;
+            border-radius: 0 7px 7px 0;
+            padding: 10px 16px;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.65;
+        }
+
+        .presence-note strong {
+            color: #000;
+        }
+
+        /* Role badge */
+        .role-badge {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            border-radius: 8px;
+            padding: 14px 22px;
+            color: #fff;
+        }
+
+        .role-badge .btitle {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.50);
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .role-badge .bname {
+            font-family: 'Norwester', sans-serif;
+            font-size: 17px;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .role-badge .brole {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.60);
+            margin-top: 2px;
+        }
+
+        /* Highlights grid */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .hl-card {
+            background: #f5f5f5;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        .hl-card .hl-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 3px;
+        }
+
+        .hl-card .hl-desc {
+            font-size: 11px;
+            color: #444;
+            line-height: 1.45;
+        }
+
+        /* Signature */
+        .sig-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 8px;
+            border-top: 1.5px dashed #aaa;
+        }
+
+        .sig-left .sig-regards {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 18px;
+        }
+
+        .sig-left .sig-name {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .sig-left .sig-role {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .sig-right .rsvp {
+            background: linear-gradient(135deg, #333, #1a1a1a);
+            color: #fff;
+            border-radius: 7px;
+            padding: 10px 18px;
+            font-size: 11.5px;
+            text-align: right;
+            line-height: 1.55;
+        }
+
+        .sig-right .rsvp strong {
+            display: block;
+            font-size: 12.5px;
+            margin-bottom: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 10px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer .ft {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 9.5px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer .fb {
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 600;
+            font-size: 10.5px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Print ── */
+        @media print {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: none;
+            }
+
+            .page {
+                width: 210mm;
+                height: 297mm;
+                box-shadow: none;
+                page-break-after: avoid;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="c tl"></div>
+        <div class="c tr"></div>
+        <div class="c bl"></div>
+        <div class="c br"></div>
+
+        <!-- Banner -->
+        <div class="banner">
+            <div class="pill">Official Invitation</div>
+            <h1><span>24-Hour Non-Stop</span><br>AI Innovation Hackathon</h1>
+            <p class="sub">Addressing Real-World Industry Challenges Through the Power of Artificial Intelligence</p>
+            <p class="organiser">Organised by SIMATS Hackathon Club &nbsp;&middot;&nbsp; SIMATS Engineering College</p>
+        </div>
+        <div class="grey-bar"></div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- Heading -->
+            <div class="inv-label">
+                <p>with our highest esteem and deepest respect</p>
+                <h2>Formal Invitation</h2>
+                <div class="ornament">
+                    <hr>&mdash;
+                    <hr>
+                </div>
+            </div>
+
+            <!-- Addressed To -->
+            <div class="to-block">
+                <div class="to-lbl">To</div>
+                <div class="to-name">Dr. E. Bhaskaran</div>
+                <div class="to-role">MSME Joint Director</div>
+                <div class="to-dept">Tamil Nadu Startup and Innovation Mission</div>
+            </div>
+
+            <!-- Salutation -->
+            <p class="para">
+                Respected Sir,<br>
+                It is with immense honour and privilege that we, the <strong>SIMATS Hackathon Club, SIMATS Engineering
+                    College</strong>,
+                humbly invite you to grace our <strong>24-Hour Non-Stop AI Innovation Hackathon</strong> as our
+                distinguished
+                <strong>Chief Guest</strong>. Your presence would be a profound source of inspiration and encouragement
+                to our student innovators.
+            </p>
+
+            <!-- Event Details -->
+            <div class="event-row">
+                <div class="ev">
+                    <div class="lbl">Event Dates</div>
+                    <div class="val">30 – 31 March 2025</div>
+                </div>
+                <div class="ev">
+                    <div class="lbl">Duration</div>
+                    <div class="val">24 Hours &middot; Non-Stop</div>
+                </div>
+                <div class="ev">
+                    <div class="lbl">Venue</div>
+                    <div class="val">Kurinji Hall<br>Saveetha Medical College</div>
+                </div>
+            </div>
+
+            <!-- Presence Note -->
+            <div class="presence-note">
+                <strong>Your gracious presence is most respectfully requested on 30th March 2025, from 10:00 AM to 1:00
+                    PM</strong> — the
+                Inauguration Day.
+                We fully appreciate your esteemed commitments and are grateful for any time you are able to honour us
+                with.
+            </div>
+
+            <!-- Role Badge -->
+            <div class="role-badge">
+                <div>
+                    <div class="btitle">We warmly invite you as our</div>
+                    <div class="bname">Chief Guest of Honour</div>
+                    <div class="brole">Inauguration Ceremony &nbsp;&middot;&nbsp; 30 March 2025 &nbsp;&middot;&nbsp;
+                        Kurinji Hall,
+                        Saveetha Medical College</div>
+                </div>
+            </div>
+
+            <!-- Brief note -->
+            <p class="para">
+                Participants will collaborate to solve <strong>authentic problem statements provided by real-world
+                    industry partners</strong>,
+                making every solution impactful and industry-ready. Your visionary guidance would greatly elevate this
+                experience.
+            </p>
+
+            <!-- Highlights -->
+            <div class="highlights">
+                <div class="hl-card">
+                    <div class="hl-title">AI-Powered Solutions</div>
+                    <div class="hl-desc">Leveraging cutting-edge AI &amp; ML technologies to tackle real challenges
+                    </div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-title">Industry Problems</div>
+                    <div class="hl-desc">Authentic problem statements sourced directly from industry leaders</div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-title">Team Collaboration</div>
+                    <div class="hl-desc">Cross-disciplinary teams working together for 24 hours non-stop</div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-title">Recognition &amp; Awards</div>
+                    <div class="hl-desc">Outstanding solutions honoured and recognized by industry experts</div>
+                </div>
+            </div>
+
+            <!-- Signature -->
+            <div class="sig-row">
+                <div class="sig-left">
+                    <div class="sig-regards">Yours respectfully,</div>
+                    <div style="display:flex; gap:40px; align-items:flex-end;">
+                        <div>
+                            <div style="height:32px; margin-bottom:2px;"></div>
+                            <div class="sig-name">Harsh Limkar N</div>
+                            <div class="sig-role">Club President &nbsp;&middot;&nbsp; SIMATS Hackathon Club</div>
+                            <div class="sig-role" style="color:#999; font-size:10.5px; margin-top:1px;">SIMATS
+                                Engineering
+                                College</div>
+                        </div>
+                        <div>
+                            <img src="WhatsApp Image 2026-03-02 at 13.05.46.jpeg" alt="Signature of Dr. Surendran R"
+                                style="height:32px; margin-bottom:2px; display:block;">
+                            <div class="sig-name">Dr. Surendran R</div>
+                            <div class="sig-role">SIMATS Hackathon Club Dean</div>
+                            <div class="sig-role" style="color:#999; font-size:10.5px; margin-top:1px;">SIMATS
+                                Engineering
+                                College</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sig-right">
+                    <div class="rsvp">
+                        <strong>Kindly confirm your participation</strong>
+                        Please contact the event coordinator<br>at your earliest convenience
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span class="ft">Official &middot; Confidential &middot; Invitation</span>
+            <span class="fb">AI Innovation Hackathon 2025 &nbsp;&middot;&nbsp; SIMATS Engineering College</span>
+        </div>
+
+    </div>
+</body>
+
+</html>
