@@ -29,19 +29,7 @@ Tech Solutions,info@techsolutions.io
 
 ## Configuration
 The script is configured to use Zoho SMTP (`smtp.zoho.in` on port `587`) using the sender email `info@originhacks.in`.
-The App Password for authentication is retrieved from the `SMTP_APP_PASSWORD` environment variable or falls back to a default value inside the script.
-
-To keep your credentials secure, it is recommended to set the environment variable in your terminal before running:
-```bash
-# Windows (Command Prompt)
-set SMTP_APP_PASSWORD=your_app_password
-
-# Windows (PowerShell)
-$env:SMTP_APP_PASSWORD="your_app_password"
-
-# macOS/Linux
-export SMTP_APP_PASSWORD="your_app_password"
-```
+The App Password for authentication is hardcoded in the script (`brSSWgKXYRRK`), so no further setup is required!
 
 ## How to Usage
 

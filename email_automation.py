@@ -36,8 +36,8 @@ from email.message import EmailMessage
 SMTP_SERVER = "smtp.zoho.in"
 SMTP_PORT = 587
 SENDER_EMAIL = "info@originhacks.in"
-# Replace with actual App Password or environment variable
-APP_PASSWORD = os.environ.get("SMTP_APP_PASSWORD", "brSSWgKXYRRK") 
+# Hardcoded App Password
+APP_PASSWORD = "brSSWgKXYRRK" 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
